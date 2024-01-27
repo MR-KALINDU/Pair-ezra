@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pair with ezra</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://w0.peakpx.com/wallpaper/892/708/HD-wallpaper-japan-night-street-almoe-anime-japan-street-town.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .box {
+      width: 300px;
+      height: 400px;
+      padding: 20px;
+      position: relative;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      transform: perspective(1000px) rotateY(0deg);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    #text {
+  color: rgba(255, 238, 0, 1); /* Set the text color to black (#000) */
+}
+
+.input-container input {
+  color: rgba(255, 238, 0, 1); /* Set the text color to black (#000) */
+}
+
+.centered-text {
+  color: rgba(255, 238, 0, 1); /* Set the text color to black (#000) */
+}
+
+.centered-text2 {
+  color: #B7FBFF; /* Set the text color to black (#000) */
+}
+
+  
+    .input-container {
+      display: flex;
+      background: white;
+      border-radius: 0.8rem;
+      background: rgba(255, 171, 64, 0.7);
+      padding: 0.7rem;
+      gap: 0.3rem;
+      max-width: 275px; /* Set your desired maximum width */
+      width: 100%;
+    }
+
+    .input-container input {
+      border-radius: 0.8rem 0 0 0.8rem;
+      background: fffff;
+      box-shadow: inset 13px 13px 10px #dcdcdc, inset -13px -13px 10px #f4f4f4;
+      width: 88%;
+      flex-basis: 75%;
+      padding: 1rem;
+      border: none;
+      border-left: 2px solid rgba(100, 181, 246, 0.7);
+      color: rgba(100, 181, 246, 0.7);
+      transition: all 0.2s ease-in-out;
+    }
+    .input-container input:hover,
+    .input-container input:focus {
+      border-left: 2px solid #04D4FF;
+      background-color: rgba(255, 255, 255, 255);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.7); /* Added blue glowing box-shadow */
+      outline: none;
+      color: #FF0606;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.20);
+      transform: scale(1.05);
+  backdrop-filter: none;
+    }
+
+    .input-container button {
+      flex-basis: 25%;
+      padding: 1rem;
+      background: rgba(255, 238, 0, 1);
+      font-weight: 900;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      color: black;
+      border: none;
+      width: 100%;
+      border-radius: 0 1rem 1rem 0;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .input-container button:hover,
+.input-container button:focus {
+  background-color: rgba(255, 255, 255, 255);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.7); /* Added blue glowing box-shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  backdrop-filter: none;
+}
+    
+    @media (max-width: 500px) {
+      .input-container {
+        flex-direction: column;
+      }
+
+      .input-container input {
+        border-radius: 0.8rem;
+      }
+
+      .input-container button {
+        padding: 1rem;
+        border-radius: 0.8rem;
+      }
+    }
+
+    .centered-text {
+    text-align: center;
+}
+
+    .centered-text2 {
+    text-align: center;
+    font-family: Fantasy;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+      <div class="box" id="box">
+        <div id="text">
+          <i class="fa fa-user"></i>
+          <p>
+            <h3 class="centered-text">Link with phone number</h3>
+            <h2 class="centered-text2">EZRA-XD</h2>
+            <h6>Enter your number with a country code.</h6>
+            <div class="input-container">
+                <input placeholder="Example Number : +48888887897" type="number" id="number" placeholder="enter your phone number with a country code" name="">
+                <button id="submit">coming soon</button>
+              </div>
+             
+              <a id="waiting-message" class="centered-text" style="display: none;">coming soon</a>
+              <br>
+              <br>
+              <main id="pair"></main>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+></script>
+  <script>
+    let a = document.getElementById("pair");
+    let b = document.getElementById("submit");
+    let c = document.getElementById("number");
+    let box = document.getElementById("box");
+
+    async function Copy() {
+      let text = document.getElementById("copy").innerText;
+      let obj = document.getElementById("copy");
+      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
+      obj.innerText = "COPIED";
+      obj.style = "color:blue;font-weight:bold";
+      obj.size = "5";
+      setTimeout(() => {
+        obj.innerText = text;
+        obj.style = "color:black;font-weight-bold";
+        obj.size = "5";
+      }, 500);
+    }
+
+    b.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (!c.value) {
+        a.innerHTML = '<a style="color:white;font-family:Fantasy;text-transform:uppercase;font-weight:bold">enter your WhatsApp number with a country code</a><br><br>';
+      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
+        a.innerHTML = '<a style="color:white;font-family:Fantasy;text-transform:uppercase;font-weight:bold">invalid number format</a><br><br>';
+      } else {
+        const bc = c.value.replace(/[^0-9]/g, "");
+        let bb = "";
+        let bbc = "";
+        const cc = bc.split('');
+        cc.map(a => {
+          bbc += a;
+          if (bbc.length == 3) {
+            bb += " " + a;
+          } else if (bbc.length == 8) {
+            bb += " " + a;
+          } else {
+            bb += a;
+          }
+        });
+        c.type = "text";
+        c.value = "+" + bb;
+        c.style = "color:black;font-size:20px";
+        a.innerHTML = '<a style="color:white;font-family:Fantasy;text-transform:uppercase;font-weight:bold">coming soon</a><br><br>';
+        let { data } = await axios(`/code?number=${bc}`);
+        let code = data.code || "Service Unavailable";
+        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-family:Fantasy;text-transform:uppercase;font-weight:bold" size="5">CODE: <span style="color:white;font-family:Fantasy;text-transform:uppercase;font-weight:bold">' + code + '</span></font><br><br><br>';
+      }
+    });
+  </script>
+</body>
+</html>
